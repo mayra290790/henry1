@@ -1,0 +1,47 @@
+{{extend 'layout.html'}}
+<br>
+<center><img src="/1/static/catalogotoyota01.jpg" alt="My Logo" /></center>
+<br>
+<div class="post">
+<div class="entry">
+<table style="background:#F1FCFC" border="10" width="100%" border-color=#F1FCFC>
+<!--<table border="40" width="100">-->
+    <tr> 
+       <th bgcolor="#81C3E6"><center>MARCA</center></th>
+       <th bgcolor="#81C3E6" width="10%"><center>CODIGO</center></th> 
+       <th bgcolor="#81C3E6"><center>IMAGEN</center></TH>
+       <th bgcolor="#81C3E6"><center>TIPO</center></TH>
+       <th bgcolor="#81C3E6"><center>DESCRIPCION</center></TH>
+       
+    </tr>
+
+<tr>
+  {{for i,row in enumerate(toyota):}}
+  {{if i==items_per_page: break}}
+   <td><center>{{=row.marca}}</center></td>
+   <td><center>{{=row.cod_articulo}}</center></td>
+    <td><center>{{=IMG(_width="100px",_height="100px",_onmouseover="this.width=500;this.height=400;",_onmouseout="this.width=200;this.height=150;",_src=URL(c='default',f='download', args=row.foto))}}</center></td>
+   <td><center>{{=row.tipo}}</center></td>
+   <td><center>{{=row.descripcion}}</center></td>
+  
+</tr>
+{{pass}}
+
+</table>
+<table>
+<tr>
+<td><center><center><form><input aling "left" type="button" value=" Imprimir " onclick="window.print();return false;" />
+    </form></center></center></td>
+
+</tr>
+    </table>
+    <br/>
+
+{{if page:}}
+<center><a href="{{=URL(args=[page-1])}}">PAGINA ANTERIOR</a></center>
+{{pass}}
+
+
+{{if len(toyota)>items_per_page:}}
+<center><a href="{{=URL(args=[page+1])}}">PAGINA SIGUIENTE</a></center>
+{{pass}}

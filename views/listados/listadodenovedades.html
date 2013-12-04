@@ -1,0 +1,28 @@
+{{extend 'layout.html'}}
+<td><center><img src="/1/static/telefonofaxemail.jpg" alt="My Logo" width="100%"/><a></td
+<br>
+<br>
+<div class="post">
+<div class="entry">
+<table style="background:#F1FCFC" border="0" width="100%">
+<!--<table border="40" width="100">-->
+    <tr> 
+       <th bgcolor="#81C3E6"><center>Nº DE OFERTA</center></th>
+       <th bgcolor="#81C3E6"><center>PRODUCTO</center></th> 
+       <th bgcolor="#81C3E6"><center>DETTALLE DE LA OFERTA</center></TH>
+       <th bgcolor="#81C3E6"><center>FECHA DE OFERTA</center></TH>
+    </tr>
+{{ for x in novedades:}}
+<tr>
+   <td><center>{{=x.id}}</center></td>
+    <td><center>{{=IMG(_width="100px",_height="100px",_onmouseover="this.width=500;this.height=400;",_onmouseout="this.width=200;this.height=150;",_src=URL(c='default',f='download', args=x.novedad))}}</center></td>
+   <td><center>{{=x.detalle}}</center></td>
+   <td><center>{{=x.fecha_novedad}}</center></td>
+  
+</tr>
+{{pass}}
+<table>
+<tr>
+   
+            </table>
+</table>

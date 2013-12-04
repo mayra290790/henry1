@@ -1,0 +1,31 @@
+{{extend 'layout.html'}}
+<br>
+<br>
+<center>
+<center>
+<td><center><img src="/1/static/telefonofaxemail.jpg" alt="My Logo" width="100%"/><a></td></center></a>
+<br>
+<MARQUEE><CENTER>{{=A(IMG(_width="750px",_src=URL(r=request,c='static',f='tiras.jpg'),_title='autopartes'))}}</CENTER></MARQUEE>
+<center><table style="background:#F1FCFC" border="" width="100%"></center>
+<!--<table border="40" width="100">-->
+    <tr> 
+       <th bgcolor="#81C3E6"><center>Nº CORREO</center></th>
+       <th bgcolor="#81C3E6"><center>NOMBRE Y APELLIDO</center></th>
+       <th bgcolor="#81C3E6"><center>EMAIL</center></TH>
+       <th bgcolor="#81C3E6"><center>ASUNTO</center></TH>
+       <th bgcolor="#81C3E6"><center>MENSAJE</center></TH>    
+      
+      
+    </TR>
+{{ for x in correo:}}
+<tr>
+   <td><center>{{=x.id_correo}}</center></td>
+   <td><center>{{=x.nombre_apellido}}</center></td>
+   <td><center>{{=x.email}}</center></td>
+   <td><center>{{=x.asunto}}</center></td>
+   <td><center>{{=x.mensaje}}</center></td>
+   <td style="border: 1px solid #F1FCFC"><center>{{=A('Responder', _href=URL(r=request, f='respondermensaje', args=[x.id_correo]))}} -
+        {{=A('Borrar', _href=URL(r=request, f='borrarmensaje', args=[x.id_correo]))}}
+</tr>
+{{pass}}
+</table>

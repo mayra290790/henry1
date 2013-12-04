@@ -1,0 +1,48 @@
+{{extend 'layout.html'}}
+<br>
+<br>
+<br>
+<center>
+<center>
+<td><center><img src="/1/static/telefonofaxemail.jpg" alt="My Logo" width="100%"/><a></td></center></a>
+<br>
+<MARQUEE><CENTER>{{=A(IMG(_width="750px",_src=URL(r=request,c='static',f='tiras.jpg'),_title='autopartes'))}}</CENTER></MARQUEE>
+<table border="0" width="100%" >  
+<html>
+<br>
+<div class="post">
+<div class="entry">
+    <td><form method)="post"><b>BUSCAR POR CODIGO:<input type="text" name="buscar"><CENTER><input type="submit" value="Buscar"></form></td><CENTER>
+    <td><form method)="post"><b>BUSCAR POR DESCRIPCION:<input type="text" name="buscar2"><CENTER><input type="submit" value="Buscar"></form></td></CENTER>
+     
+<table style="background:#F1FCFC" border="0" width="100%">
+<!--<table border="40" width="100">-->
+    <tr> 
+       <th bgcolor="#81C3E6"><center>MARCAS</center></th>
+       <th bgcolor="#81C3E6"><center>CODIGO DE ARTICULO</center></th> 
+       <th bgcolor="#81C3E6"><center>IMAGEN</center></TH>
+       <th bgcolor="#81C3E6"><center>TIPO</center></TH>
+       <th bgcolor="#81C3E6"><center>DESCRIPCION</center></TH>
+       
+    </tr>
+       
+        {{for row in mcatalogo or mcatalogo2: }}
+ <tr>
+     <td><b><center>{{=row.marca}}</center></b></td>
+    <td><b><center>{{=row.cod_articulo}}</center></b></td>
+   <td><center>{{=IMG(_width="200px",_height="200px",_onmouseover="this.width=500;this.height=400;",_onmouseout="this.width=200;this.height=150;",_src=URL(c='default',f='download', args=row.foto))}}</center></td>
+    <td><b><center>{{=row.tipo}}</center></b></td>
+   <td><b><center>{{=row.descripcion}}</center></b></td>
+  
+   <td><b><center>{{=A('Modificar', _href=URL(r=request,f='modificar', args=row.id))}} - 
+       {{=A('Borrar', _href=URL(r=request , f='borrar', args=[row.id]))}} 
+       <hr> </center></b></td>
+</tr>
+{{pass}}
+<table>
+<tr>
+    <center><td><a href="/1/listados/catalogoxtipo"><img src="/1/static/volveralistar.jpg" allign="center" alt="My Logo"></td></center>
+</tr>
+</table>
+
+<br/>
