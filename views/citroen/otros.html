@@ -1,0 +1,38 @@
+{{extend 'layout.html'}}
+
+<br>
+<br>
+<center><img src="/1/static/catalogocitroen1.jpg" alt="My Logo" /></center>
+<br>
+<div class="post">
+<div class="entry">
+
+<table style="background:#F1FCFC" border="0" width="100%">
+<!--<table border="40" width="100">-->
+    <tr>
+       <th bgcolor="#81C3E6"><center>CODIGO DE ARTICULO</center></th>
+       <th bgcolor="#81C3E6"><center>IMAGEN</center></TH>
+       <th bgcolor="#81C3E6"><center>DESCRIPCION</center></TH>
+
+    </tr>
+{{ for x in otros:}}
+<tr>
+   <td><center>{{=x.cod_articulo}}</center></td>
+    <td><center>{{=IMG(_width="100px",_height="100px",_onmouseover="this.width=500;this.height=400;",_onmouseout="this.width=200;this.height=150;",_src=URL(c='default',f='download', args=x.foto))}}</center></td>
+    
+   <td><center>{{=x.descripcion}}</center></td>
+   
+
+
+</tr>
+{{pass}}
+<table>
+<tr>
+    <td><center><a href="/1/citroen/otros"><img src="/1/static/volveralistar.jpg" alt="My Logo" /><center></td>
+        <td><center><a href="/1/citroen/citroen"><img src="/1/static/volvercatalogochevrolet.jpg" alt="My Logo" /></center></td>
+   <td><a href="/1/catalogos/marcas"><img src="/1/static/menumarcas.jpg" alt="My Logo" /></center></td>
+</tr>
+         
+
+            </table>
+</table>

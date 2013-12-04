@@ -1,0 +1,58 @@
+{{extend 'layout.html'}}
+
+<br>
+<center><img src="/1/static/telefonofaxemail.jpg" alt="My Logo" width="100%"/></center>
+<br>
+<table border="0" width="100%" > 
+<br> 
+<center><tr align="center">
+<td><a href="/1/quienessomos/index"><img src="/1/static/quienessomos3.jpg" alt="My Logo" width="200%"/></td></center></a>
+<td><a href="/1/dondeestamos/index"><img src="/1/static/dondeestamos3.jpg" alt="My Logo" width="200%"/></td></center></a>
+<td><a href="/1/catalogos/marcas"><img src="/1/static/catalogos2.jpg" alt="My Logo" width="100%"/><a></td></center></a>
+ 
+</tr></center>
+</table> 
+
+<center><div style="width:1000px;height:600px;">
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+width="1200" height="600" id="slideful">
+<param name="movie" value="http://c.slideful.com/1/201311/04/2339766871190488/slideful.swf?fr=220&w=1200&h=600&s=5&tr=safo&n=4"/>
+<param name="bgcolor" value="#FFFF00"/>
+<param name="quality" value="high"/>
+<param name="allowscriptaccess" value="always"/>
+<param name="wmode" value="transparent"/>
+<object type="application/x-shockwave-flash"
+width="1000" height="600"
+data="http://c.slideful.com/1/201311/04/2339766871190488/slideful.swf?fr=220&w=1200&h=600&s=5&tr=safo&n=4" id="slideful">
+<param name="bgcolor" value="#FFFF00"/>
+<param name="quality" value="high"/>
+<param name="allowscriptaccess" value="always"/>
+<param name="wmode" value="transparent"/>
+<script type="text/javascript" src="http://c.slideful.com/v20131104_2339766871190488.js"></script>
+<noscript ><a href="http://slideful.com/v20131104_2339766871190488_pf.htm">View the slide show</a></noscript>
+</object>
+</div></center>
+<h2><p><center style="background:#81C3E6">ººLAS MEJORES OFERTAS ... LLAME YA!ºº</center></p></h2>
+</center>
+<center><table>
+<tr>
+   {{for x,row in enumerate(novedades):}}
+   {{if x==items_per_page: break}}
+    <td><span style='margin-left:0%'>{{=IMG(_width="100px",_height="100px",_onmouseover="this.width=500;this.height=400;",_onmouseout="this.width=200;this.height=150;",_src=URL(c='default',f='download', args=row.foto))}} </span><b><li><span style='margin-down:0%'> {{=row.descripcion}} </span></b></li></td>
+
+     {{pass}}
+
+
+</table>  
+<div>   
+<TABLE>
+{{if page:}}
+<button><center><a href="{{=URL(args=[page-1])}}"><img src="/1/static/ofertas3.jpg" height="148"></a></center></button>
+{{pass}}
+
+
+{{if len(novedades)>items_per_page:}}
+    <button><center><a href="{{=URL(args=[page+1])}}"><img src="/1/static/ofertas2.jpg" height="148"></a></center></button>
+{{pass}}
+</TABLE>
+    </div>

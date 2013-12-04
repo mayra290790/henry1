@@ -1,0 +1,55 @@
+{{extend 'layout.html'}}
+<html>
+<head>
+<script type=”text/javascript” src=”paging.js”></script>
+    </head>
+<br>
+<br>
+<br>
+<div class="post">
+<div class="entry">
+<div id="muestra">
+<center><img src="/1/static/catalogovolvo01.jpg" alt="My Logo" /></center>
+<table style="background:#F1FCFC" border="10" width="100%" border-color=#F1FCFC>
+<!--<table border="40" width="100">-->
+    <tr> 
+       <th bgcolor="#81C3E6"><center>MARCA</center></th>
+       <th bgcolor="#81C3E6" width="10%"><center>CODIGO</center></th> 
+       <th bgcolor="#81C3E6"><center>IMAGEN</center></TH>
+       <th bgcolor="#81C3E6"><center>TIPO</center></TH>
+       <th bgcolor="#81C3E6"><center>DESCRIPCION</center></TH>
+       
+    </tr>
+
+<tr>
+  {{for i,row in enumerate(volvo):}}
+   {{if x==items_per_page: break}}
+    <td><b><center>{{=row.marca}}</center></b></td>
+    <td><b><center>{{=row.cod_articulo}}</center></b></td>
+    <td><center>{{=IMG(_width="100px",_height="100px",_onmouseover="this.width=500;this.height=400;",_onmouseout="this.width=200;this.height=150;",_src=URL(c='default',f='download', args=row.foto))}}</center></td>
+    <td><b><center>{{=row.tipo}}</center></b></td>
+    <td><b><center>{{=row.descripcion}}</center></b></td>
+  
+</tr>
+{{pass}}
+</table>
+      <center><h4> Distribuidora Henry - Av.Piedrabuena 5337 Ciudad de Buenos Aires C1439GWK </h4></center>
+    </div>
+<table>
+<tr>
+<td>
+<center>
+{{if page:}}
+    <center><a href="{{=URL(args=[page-1])}}"><img src="/1/static/paginaanterior.png" height="148"></a></center></button></td>
+{{pass}}
+
+<td>
+{{if len(volvo)>items_per_page:}}
+   <center><a href="{{=URL(args=[page+1])}}"><img src="/1/static/paginasiguiente.png" height="148"></a></center></button></td>
+{{pass}}
+</td>
+</form>
+<td><center><script type="text/javascript">
+function imprSelec(muestra)
+{var ficha=document.getElementById(muestra);var ventimp=window.open(' ','popimpr');ventimp.document.write(ficha.innerHTML);ventimp.document.close();ventimp.print();ventimp.close();}
+</script><a href="javascript:imprSelec('muestra')"><img src="/1/static/imprimir.png" border="0" ></a><center>
