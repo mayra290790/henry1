@@ -2,7 +2,7 @@
 # intente algo como
 
 def catalogoxtipo():
-    f=SQLFORM(db.catalogoxtipo, submit_button='Guardar')
+    f=SQLFORM(db.catalogoxtipo, submit_button='GUARDAR')
     if f.accepts(request.vars, session):
             response.flash='Se ingreso un nuevo articulo' 
           
